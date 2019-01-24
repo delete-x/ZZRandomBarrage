@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
   s.author       = { "delete-x" => "coder_rqb@163.com" } 
   s.platform     = :ios, "7.0"                  #支持的平台和版本号
   s.source       = { :git => "https://github.com/delete-x/ZZRandomBarrage.git", :tag => "0.0.1" }         #存储库的git地址，以及tag值
-  s.source_files  =  "QBRandomBarrage/**/*.{h,m}" #需要托管的源代码路径
+  s.source_files  =  'ZZRandomBarrage/**/*' #需要托管的源代码路径
   s.requires_arc = true #是否支持ARC
 
 end
