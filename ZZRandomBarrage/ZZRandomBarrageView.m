@@ -58,7 +58,7 @@
 - (void)layoutSubviews
 {
     CGSize size = self.bounds.size;
-    if (!CGSizeEqualToSize(size, _size)) {
+    if (!CGSizeEqualToSize(size, _size) && !CGSizeEqualToSize(size, CGSizeZero)) {
         NSUInteger trackCount = _trackArray.count;
         CGFloat trackHeight = size.height / trackCount * 1.0;
         CGFloat trackTop = 0;
@@ -238,7 +238,11 @@
 
 - (void)dealloc
 {
-    dispatch_cancel(_queueTimer);
+    if (_queueTimer) {
+        if (@available(iOS 8.0, *)) {
+            dispatch_cancel(_queueTimer);
+        }
+    }
     self.queueTimer = nil;
 }
 
