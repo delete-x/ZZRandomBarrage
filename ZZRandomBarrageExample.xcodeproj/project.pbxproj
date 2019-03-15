@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A559E87223B7E720000271D /* UIView+BlockAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A559E86223B7E720000271D /* UIView+BlockAction.m */; };
 		6AD5025D21F99DE100B0A317 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD5025C21F99DE100B0A317 /* AppDelegate.m */; };
 		6AD5026021F99DE100B0A317 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AD5025F21F99DE100B0A317 /* ViewController.m */; };
 		6AD5026321F99DE100B0A317 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AD5026121F99DE100B0A317 /* Main.storyboard */; };
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6A559E85223B7E720000271D /* UIView+BlockAction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+BlockAction.h"; sourceTree = "<group>"; };
+		6A559E86223B7E720000271D /* UIView+BlockAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+BlockAction.m"; sourceTree = "<group>"; };
 		6AD5025821F99DE100B0A317 /* ZZRandomBarrageExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZZRandomBarrageExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AD5025B21F99DE100B0A317 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		6AD5025C21F99DE100B0A317 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -95,6 +98,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6A559E84223B7E270000271D /* Categray */ = {
+			isa = PBXGroup;
+			children = (
+				6A559E85223B7E720000271D /* UIView+BlockAction.h */,
+				6A559E86223B7E720000271D /* UIView+BlockAction.m */,
+			);
+			path = Categray;
+			sourceTree = "<group>";
+		};
 		6AD5024F21F99DE100B0A317 = {
 			isa = PBXGroup;
 			children = (
@@ -161,6 +173,7 @@
 		6AD502A221F9CE9A00B0A317 /* ZZRandomBarrage */ = {
 			isa = PBXGroup;
 			children = (
+				6A559E84223B7E270000271D /* Categray */,
 				6AD502AC21F9CE9A00B0A317 /* ZZRandomBarrageView.h */,
 				6AD502A721F9CE9A00B0A317 /* ZZRandomBarrageView.m */,
 				6AD502A521F9CE9A00B0A317 /* ZZRandomBarrageConfig.h */,
@@ -315,6 +328,7 @@
 				6AD5026B21F99DE300B0A317 /* main.m in Sources */,
 				6AD5025D21F99DE100B0A317 /* AppDelegate.m in Sources */,
 				6AD502B221F9CE9A00B0A317 /* ZZBarrageItemObject.m in Sources */,
+				6A559E87223B7E720000271D /* UIView+BlockAction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

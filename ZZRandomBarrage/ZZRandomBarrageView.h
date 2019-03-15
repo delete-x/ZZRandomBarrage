@@ -20,7 +20,8 @@
 
 // 弹幕更新时触发
 - (void)barrageView:(ZZRandomBarrageView *)barrageView didUpdateBufferQueue:(NSArray *)bufferQueue;
-
+// 弹幕被点击时触发
+- (void)barrageView:(ZZRandomBarrageView *)barrageView didSelectItemObject:(ZZBarrageItemObject *)itemObject;
 @end
 
 /*

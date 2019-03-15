@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "ZZRandomBarrage"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "ZZ Series - Random Barrage"
   s.description  = "ZZ Series - a view for random barrage"
   s.homepage     = "https://github.com/delete-x/ZZRandomBarrage"
@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
   #Ren Qiang Bin 
   s.author       = { "delete-x" => "coder_rqb@163.com" } 
   s.platform     = :ios, "7.0"                  
-  s.source       = { :git => "https://github.com/delete-x/ZZRandomBarrage.git", :tag => "0.0.4" }
+  s.source       = { :git => "https://github.com/delete-x/ZZRandomBarrage.git", :tag => "0.0.5" }
   s.source_files  =  'ZZRandomBarrage/**/*'
   s.requires_arc = true
 

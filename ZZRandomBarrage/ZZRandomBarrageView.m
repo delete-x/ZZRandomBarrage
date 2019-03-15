@@ -8,6 +8,7 @@
 
 #import "ZZRandomBarrageView.h"
 #import "ZZBarrageTrack.h"              // 虚拟弹道
+#import "UIView+BlockAction.h"
 
 @interface ZZRandomBarrageView ()
 
@@ -39,14 +40,14 @@
         ZZBarrageTrack *track = [[ZZBarrageTrack alloc] initWithConfig:self.config];
         [self.trackArray addObject:track];
     }
-    [self addSubview:self.lowContentView];
+//    [self addSubview:self.lowContentView];
     [self addSubview:self.highContentView];
     
-    self.lowContentView.translatesAutoresizingMaskIntoConstraints = NO;
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.lowContentView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:0.0f]];
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.lowContentView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:0.0f]];
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.lowContentView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:0.0f]];
-    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.lowContentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1 constant:0.0f]];
+//    self.lowContentView.translatesAutoresizingMaskIntoConstraints = NO;
+//    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.lowContentView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:0.0f]];
+//    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.lowContentView attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1 constant:0.0f]];
+//    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.lowContentView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:0.0f]];
+//    [self addConstraint:[NSLayoutConstraint constraintWithItem:self.lowContentView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1 constant:0.0f]];
     
     self.highContentView.translatesAutoresizingMaskIntoConstraints = NO;
     [self addConstraint:[NSLayoutConstraint constraintWithItem:self.highContentView attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeft multiplier:1 constant:0.0f]];
@@ -90,9 +91,9 @@
         [track clear];
     }
     [self.itemQueue removeAllObjects];
-    for (UIView *subView in self.lowContentView.subviews) {
-        [subView removeFromSuperview];
-    }
+//    for (UIView *subView in self.lowContentView.subviews) {
+//        [subView removeFromSuperview];
+//    }
     for (UIView *subView in self.highContentView.subviews) {
         [subView removeFromSuperview];
     }
@@ -124,12 +125,19 @@
         NSValue *frameValue = [track getSuitableFrameWithItemObject:itemObject];
         Class itemClass = [itemObject itemClass];
         ZZBarrageItem *item = [[itemClass alloc] init];
-        if ([itemObject queuePriority] == ZZBarrageItemQueuePriorityHigh) {
-            [self.highContentView addSubview:item];
-        } else {
-            [self.lowContentView addSubview:item];
-        }
+        [self.highContentView addSubview:item];
         item.frame = frameValue.CGRectValue;
+        [item setTouchAction:^(id sender) {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(barrageView:didSelectItemObject:)]) {
+                [self.delegate barrageView:self didSelectItemObject:itemObject];
+            }
+        }];
+//        if ([itemObject queuePriority] == ZZBarrageItemQueuePriorityHigh) {
+//            [self.highContentView addSubview:item];
+//        } else {
+//            [self.lowContentView addSubview:item];
+//        }
+        
         
         if ([item respondsToSelector:@selector(shouldUpdateItemWithObject:)]) {
             [item shouldUpdateItemWithObject:itemObject];
